@@ -1,34 +1,31 @@
 ﻿using System;
 
-namespace CheckFullNumber
+namespace CFN
 {
     class Program
     {
         static void Main(string[] args)
         {
             Console.WriteLine("Введите целое число");
-            int n = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine($"Вы ввели число {n}");
-            int i = 1;
+            int number = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine($"Вы ввели число {number}");
+            int counter = 2;
 
-            while (i <= n - 1)
+            while (counter <= number - 1)
             {
-                
-                double c = n / i;
-                bool g = c == 0;
-                if (g)
-                {
 
-                    Console.WriteLine($"К сожалению, ваше число {n} не является простым.");
-                    
-                }
-                else 
+                double remains = number % counter;
+                if (remains == 0)
                 {
-                    Console.WriteLine($"Проздравляю, число {n} является простым");
+                    break;
                 }
-                Console.WriteLine(i);
-                i++;
+                else
+                {
+                    Console.WriteLine($"Проздравляю, число {number} является простым");
+                    break;
+                }
             }
+            counter++;
         }
     }
 }
