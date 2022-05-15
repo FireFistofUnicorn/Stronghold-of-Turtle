@@ -9,8 +9,8 @@ namespace CheckFullNumber
             Console.WriteLine("Введите целое число");
             int n = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine($"Вы ввели число {n}");
-            
             int i = 1;
+
             while (i <= n - 1)
             {
                 
