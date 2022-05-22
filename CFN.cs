@@ -1,32 +1,34 @@
 ﻿using System;
 
-namespace CFN
+namespace CFN2._0
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите целое число");
-            int n = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine($"Вы ввели число {n}");
-            int i = 2;
-            bool g = n % i == 0;
+            int number = Convert.ToInt32(Console.ReadLine());
+            int counter = 2;
+            bool flag = false;
 
-            while (i <= n - 1)
+            while(counter <= number - 1)
             {
+               int remains = number % counter;
+               if(remains == 0)
+               {
+                    flag = true;
+                    break;
+               }
+                counter++;
 
+            }
 
-                if (g == true)
-                {
-
-                    Console.WriteLine($"К сожалению, ваше число {n} не является простым.");
-                }
-                else if (g == false)
-                {
-                    Console.WriteLine($"Проздравляю, число {n} является простым");
-                }
-                break;
-
+            if (flag)
+            {
+                Console.WriteLine($"Число {number} не является простым.");
+            }
+            else
+            {
+                Console.WriteLine($"Поздравляю, число {number} является простым!");
             }
         }
     }
