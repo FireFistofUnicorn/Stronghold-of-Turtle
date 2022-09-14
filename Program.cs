@@ -3,60 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
-namespace Method_1._0
+namespace Book
 {
     internal class Program
     {
-        // Задание 1. Метод разделения строки на слова
-
-        /*static void Main(string[] args)
-        {
-            Words(args);
-            Console.WriteLine();
-        }
-        static string[] WordsSplitter(string text)
-        {
-            string[] wordsSplit = text.Split(' ');
-            return wordsSplit;
-        }
-
-        static string Words(string[] args)
-        {
-            string word = Console.ReadLine();
-            string[] words = WordsSplitter(word);
-            foreach (string word2 in words)
-            {
-                word = word2.Trim();
-                Console.WriteLine(word);
-            }
-            return word;
-        }*/
-
-        // Задание 2. Перестановка слов в предложении
-        static string ReverseWord(string[] args)
-        {
-            string word = Console.ReadLine();
-            string[] sReverse = SplitWord2(word);
-            Array.Reverse(sReverse);
-            SplitWord2(word);
-            foreach (string word2 in sReverse)
-            {
-                word = word2.Trim();
-                Console.Write(word + " ");
-            }
-            return word;
-        }
-        static string[] SplitWord2(string text)
-        {
-
-            string[] wordsSplit2 = text.Split(' ');
-            return wordsSplit2;
-        }
         static void Main(string[] args)
         {
-            ReverseWord(args);
-            Console.WriteLine();
+
+            
+            Repository10 rep = new Repository10(string.Empty);
+
+            Console.WriteLine("Для просмотра всех записей введите '0'");
+            Console.WriteLine("Чтобы найти конкретного сотрудника введите '1' / Чтобы добавить сотрудника введите '2'");
+            Console.WriteLine("Для создания записи введите '3' / Для удаления сотрудника введите '4'");
+            int input = Convert.ToInt32(Console.ReadLine());
+            if (input == 0)
+            {
+                rep.GetAllWorkers(args);
+                Console.WriteLine();
+            }
+            else if (input == 1)
+            {
+                rep.GetWorkerById();
+            }
+            else
+            if (input == 2)
+            {
+                rep.Add(new Worker());
+            }
         }
     }
 }
