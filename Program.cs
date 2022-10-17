@@ -3,36 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
 
-namespace Book
+namespace Phone
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
+            Dictionary<long, string> pairs = new Dictionary<long, string>();
+            //int input = Convert.ToInt32(Console.ReadLine());
+            char key = 'д';
+            do
+            {
+                Console.WriteLine("Введите номер телефона: ");
+                long num = Convert.ToInt64(Console.ReadLine());
+                Console.WriteLine("Введите Фио: ");
+                string name = Console.ReadLine();
+                pairs.Add(num, name);
+            } while (char.ToLower(key) == ' ');
+            return;
 
-            
-            Repository10 rep = new Repository10(string.Empty);
+            Console.WriteLine("Введите 1 для вводи новых данных / Введите 2 для поиска: ");
 
-            Console.WriteLine("Для просмотра всех записей введите '0'");
-            Console.WriteLine("Чтобы найти конкретного сотрудника введите '1' / Чтобы добавить сотрудника введите '2'");
-            Console.WriteLine("Для создания записи введите '3' / Для удаления сотрудника введите '4'");
-            int input = Convert.ToInt32(Console.ReadLine());
-            if (input == 0)
-            {
-                rep.GetAllWorkers(args);
-                Console.WriteLine();
-            }
-            else if (input == 1)
-            {
-                rep.GetWorkerById();
-            }
-            else
-            if (input == 2)
-            {
-                rep.Add(new Worker());
-            }
+
         }
     }
 }
