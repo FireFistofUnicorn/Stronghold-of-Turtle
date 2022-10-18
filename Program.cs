@@ -11,21 +11,42 @@ namespace Phone
         static void Main(string[] args)
         {
             Dictionary<long, string> pairs = new Dictionary<long, string>();
-            //int input = Convert.ToInt32(Console.ReadLine());
-            char key = 'д';
+            int i = 0;
             do
             {
                 Console.WriteLine("Введите номер телефона: ");
-                long num = Convert.ToInt64(Console.ReadLine());
-                Console.WriteLine("Введите Фио: ");
-                string name = Console.ReadLine();
-                pairs.Add(num, name);
-            } while (char.ToLower(key) == ' ');
-            return;
+                string num = Console.ReadLine();
 
-            Console.WriteLine("Введите 1 для вводи новых данных / Введите 2 для поиска: ");
+                if (string.IsNullOrEmpty(num))
+                {
+                    Console.WriteLine("Вы закончили ввод.");
+                    break;
+                }
 
+                    Console.WriteLine("Введите Фио: ");
+                    string name = Console.ReadLine();
+                    long number = Convert.ToInt64(num);
+                    pairs.Add(number, name);
+                i++;
+            } while (i > 0);
+            
 
+            Console.WriteLine("Для поиска владельца, введите его номер теелфона: ");
+            long n = Convert.ToInt64(Console.ReadLine());
+
+            foreach(var key in pairs)
+            {
+                if(key.Key == n)
+                {
+                    Console.WriteLine(key.Value);
+                }
+                else if( key.Key != n)
+                {
+                    Console.WriteLine("404");
+                }    
+                
+            }
+            Console.ReadKey();
         }
     }
 }
